@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Manamah - About Us</title>
-    <link href="CSS/about_CSS.css" rel="stylesheet"/>
+    <link href="CSS/about.css" rel="stylesheet"/>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo-container">
-                <div class="logo">A</div>
+                <div class="logo">
+                    <img src="Images/logo.jpg" alt="Al Manamah Logo" class="logo-image">
+                </div>
                 <div class="company-name">Al Manamah</div>
             </div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a> <!--Linked to homepage-->
                 <a href="about.html" class="active">About</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="contactus.html">Contact</a>
+                <a href="products.html">Products</a>
+                <a href="services.html">Services</a>
+                <a href="contacts.html">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
+        <div class="hero-content">  
             <h1><a href="index.html"></a>About Al Manamah</h1>
             <p>Excellence in Customized Corporate Gifts since 2004</p>
         </div>
@@ -36,8 +38,16 @@
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="container about-container">
-            <div class="about-img"></div>
+            <div class="about-video">
+                <video autoplay muted loop>
+                    <source src="Videos/video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             <div class="about-content">
+                <video autoplay muted loop>
+                    <source src="videinfo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <h2>Our Story</h2>
                 <p>Established in 2004 in UAE, <span class="highlight">Al Manamah</span> has become a leader in Customized Corporate Gifts. We specialize in all brand reminders and exhibition relation items, guiding our clients from ideas to solutions - from concept to mould and final product.</p>
                 <p>We are experts in the give-away industry including OEM Designs and would be privileged to cater to any of your marketing requirements. You can rely on our dedicated team of experts to suggest the best give-aways that make an impact and create favorable procurement opportunities.</p>
@@ -78,21 +88,7 @@
     </section>
 
     <!-- Clients Section -->
-    <section class="clients-section" id="portfolio">
-        <div class="container">
-            <h2>Our Valued Clients</h2>
-            <div class="client-logos">
-                <div class="client-logo">Abbott</div>
-                <div class="client-logo">AbbVie</div>
-                <div class="client-logo">AstraZeneca</div>
-                <div class="client-logo">Merck</div>
-                <div class="client-logo">Pfizer</div>
-                <div class="client-logo">Bayer</div>
-                <div class="client-logo">MSC Saudi Arabia</div>
-                <div class="client-logo">Ducab</div>
-            </div>
-        </div>
-    </section>
+ 
 
     <!-- Footer -->
     <footer id="contact">
@@ -103,16 +99,16 @@
             </div>
             <div class="footer-col">
                 <h3>Contact Us</h3>
-                <p>Dubai, UAE</p>
-                <p>Phone: +971 XX XXX XXXX</p>
-                <p>Email: info@almanamah.com</p>
+                <p>Block B, B20-199, SRTI Park, Sharjah - UAE</p>
+                <p>Phone: +971 56 5577465</p>
+                <p>Email: jamesprince@yarahdubai.com</p>
             </div>
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <a href="#home">Home</a>
                 <a href="#about">About Us</a>
                 <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
+                <a href="contacts.html">Portfolio</a>
             </div>
             <div class="footer-col">
                 <h3>Follow Us</h3>
@@ -130,7 +126,7 @@
         </div>
     </footer>
 
-    <script src="JS/about_JS.js"></script>
+    <script src="JS/about.js"></script>
     <script src="JS/utils.js"></script>
 </body>
 </html>

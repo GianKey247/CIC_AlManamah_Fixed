@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Login | Al Manamah Gifts</title>
+    <link rel="stylesheet" href="CSS/contacts.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-circle">
+                    <img src="Images/logo.jpg" alt="Logo">
+                </div>
+                <div class="logo-text">Al Manamah</div>
+            </a>
+            <div class="burger" onclick="toggleMenu()">&#9776;</div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="about.html" class="nav-button">About</a>
+                <a href="products.html" class="nav-button">Products</a>
+                <a href="services.html" class="nav-button">Services</a>
+                <a href="contacts.html" class="nav-button">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="Images/mail.png" alt="Contact Us">
+            <div class="hero-text">
+                <h2>Get in Touch
+                    Whether you have a question about our products, services, or need a customized solution, our team is ready to assist you.</h2>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('contact')">Contact Us</button>
+        <button class="tab-button" onclick="openTab('login')">Client Login</button>
+    </div>
+
+    <!-- Forms Container -->
+    <div class="forms-container">
+        <!-- Contact Form -->
+        <div id="contact" class="tab-content active">
+            <div class="container form-container">
+                <div class="sidebar">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to us using the contact form or through our contact information below.</p>
+                    <div class="contact-info">
+                        <div class="contact-picture">
+                            <img src="Images/image.png" alt="James Prince" class="contact-photo">
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon-placeholder">📞</span>
+                            <div>
+                                <strong>Phone:</strong><br>+971 50 123 4567<br>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon-placeholder">✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>jamesprince@yarahdubai.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon-placeholder">🕒</span>
+                            <div>
+                                <strong>Working Hours:</strong><br>Sun-Thu: 9:00 AM - 6:00 PM
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="company" placeholder="Company Name (Optional)">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login" class="tab-content">
+            <div class="container form-container">
+                <div class="sidebar">
+                    <h3>Client Portal</h3>
+                    <p>Access your account to manage orders, view order history, and manage your corporate gifting programs.</p>
+                    <div class="contact-info">
+                        <p>Need help with your account?</p>
+                        <div class="contact-item">
+                            <span class="icon-placeholder">📞</span>
+                            <div>
+                                <strong>Support:</strong><br>+971 50 987 6543
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon-placeholder">✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>support@almanamahgifts.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h2>Client Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                        <div class="form-footer">
+                            <p><a href="#" class="form-link">Forgot Password?</a></p>
+                            <p>Don't have an account? <a href="#" class="form-link">Request Access</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Al Manamah Adv. Gifts Tr. LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="JS/contact.js"></script>
+</body>
+</html>
