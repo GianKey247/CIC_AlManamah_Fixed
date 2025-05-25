@@ -45,61 +45,62 @@
     <!-- Tabs -->
     <div class="tabs">
         <button class="tab-button active" onclick="openTab('contact')">Contact Us</button>
-        <button class="tab-button" onclick="openTab('login')">Client Login</button>
+<!--        <button class="tab-button" onclick="openTab('login')">Client Login</button> -->
     </div>
 
     <!-- Forms Container -->
-    <div class="forms-container">
-        <!-- Contact Form -->
-        <div id="contact" class="tab-content active">
-            <div class="container form-container">
-                <div class="sidebar">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out to us using the contact form or through our contact information below.</p>
-                    <div class="contact-info">
-                        <div class="contact-picture">
-                            <img src="Images/image.png" alt="James Prince" class="contact-photo">
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon-placeholder">📞</span>
-                            <div>
-                                <strong>Phone:</strong><br>+971 50 123 4567<br>
+        <div class="forms-container">
+            <!-- Contact Form -->
+            <div id="contact" class="tab-content active">
+                <div class="container form-container">
+                    <div class="sidebar">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out to us using the contact form or through our contact information below.</p>
+                        <div class="contact-info">
+                            <div class="contact-picture">
+                                <img src="Images/image.png" alt="James Prince" class="contact-photo">
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon-placeholder">✉️</span>
-                            <div>
-                                <strong>Email:</strong><br>jamesprince@yarahdubai.com
+                            <div class="contact-item">
+                                <span class="icon-placeholder">📞</span>
+                                <div>
+                                    <strong>Phone:</strong><br>+971 50 123 4567<br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="icon-placeholder">🕒</span>
-                            <div>
-                                <strong>Working Hours:</strong><br>Sun-Thu: 9:00 AM - 6:00 PM
+                            <div class="contact-item">
+                                <span class="icon-placeholder">✉️</span>
+                                <div>
+                                    <strong>Email:</strong><br>jamesprince@yarahdubai.com
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon-placeholder">🕒</span>
+                                <div>
+                                    <strong>Working Hours:</strong><br>Sun-Thu: 9:00 AM - 6:00 PM
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-section">
-                    <h2>Send us a Message</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="company" placeholder="Company Name (Optional)">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
+                    <div class="form-section">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm" action="https://formsubmit.co/burnerjb24@gmail.com" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="company" name="company" placeholder="Company Name (Optional)">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" name="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,22 +127,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-section">
-                    <h2>Client Login</h2>
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
-                        </div>
-                        <button type="submit" class="submit-btn">Login</button>
-                        <div class="form-footer">
-                            <p><a href="#" class="form-link">Forgot Password?</a></p>
-                            <p>Don't have an account? <a href="#" class="form-link">Request Access</a></p>
-                        </div>
-                    </form>
-                </div>
+<!--                <div class="form-section">-->
+<!--                    <h2>Client Login</h2>-->
+<!--                    <form id="loginForm">-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>-->
+<!--                        </div>-->
+<!--                        <button type="submit" class="submit-btn">Login</button>-->
+<!--                        <div class="form-footer">-->
+<!--                            <p><a href="#" class="form-link">Forgot Password?</a></p>-->
+<!--                            <p>Don't have an account? <a href="#" class="form-link">Request Access</a></p>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

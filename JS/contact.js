@@ -11,16 +11,16 @@ function openTab(tabName) {
     tabContents.forEach(content => {
         content.classList.remove('active');
     });
-    
+
     // Remove active class from all tab buttons
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
         button.classList.remove('active');
     });
-    
+
     // Show selected tab content
     document.getElementById(tabName).classList.add('active');
-    
+
     // Add active class to clicked button
     event.target.classList.add('active');
 }
@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function() {
             e.preventDefault();
-            
+
             // Get form data
             const formData = {
                 name: document.getElementById('name').value.trim(),
@@ -41,48 +41,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 subject: document.getElementById('subject').value.trim(),
                 message: document.getElementById('message').value.trim()
             };
-            
+            console.log('Contact Form Data:', formData);
+
             // Validate required fields
             if (!formData.name || !formData.email || !formData.subject || !formData.message) {
                 showNotification('Please fill in all required fields.', 'error');
                 return;
             }
-            
+
             // Validate email format
             if (!isValidEmail(formData.email)) {
                 showNotification('Please enter a valid email address.', 'error');
                 return;
             }
-            
+
             // Simulate form submission
+            console.log('submission');
             submitContactForm(formData);
         });
     }
-    
+
     // Login Form Handler
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Get login data
             const loginData = {
                 email: document.getElementById('loginEmail').value.trim(),
                 password: document.getElementById('loginPassword').value
             };
-            
+
             // Validate required fields
             if (!loginData.email || !loginData.password) {
                 showNotification('Please enter both email and password.', 'error');
                 return;
             }
-            
+
             // Validate email format
             if (!isValidEmail(loginData.email)) {
                 showNotification('Please enter a valid email address.', 'error');
                 return;
             }
-            
+
             // Simulate login
             submitLogin(loginData);
         });
@@ -99,77 +101,77 @@ function isValidEmail(email) {
 function submitContactForm(formData) {
     const submitBtn = document.querySelector('#contactForm .submit-btn');
     const originalText = submitBtn.textContent;
-    
+
     // Show loading state
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
+
     // Simulate API call
     setTimeout(() => {
         // Reset button
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-        
+
         // Show success message
         showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
-        
+
         // Reset form
         document.getElementById('contactForm').reset();
-        
+
         // In a real application, you would send the data to your server:
         // fetch('/api/contact', {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },
         //     body: JSON.stringify(formData)
         // })
-        
+
     }, 2000);
 }
 
 // Login submission simulation
-function submitLogin(loginData) {
-    const submitBtn = document.querySelector('#loginForm .submit-btn');
-    const originalText = submitBtn.textContent;
-    
-    // Show loading state
-    submitBtn.textContent = 'Logging in...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        
-        // Simulate login response
-        if (loginData.email === 'demo@almanamahgifts.com' && loginData.password === 'demo123') {
-            showNotification('Login successful! Redirecting to dashboard...', 'success');
-            
-            // In a real application, redirect to dashboard
-            setTimeout(() => {
-                // window.location.href = '/dashboard';
-                showNotification('Demo mode: Dashboard redirect disabled', 'info');
-            }, 1500);
-        } else {
-            showNotification('Invalid email or password. Please try again.', 'error');
-        }
-        
-        // In a real application, you would authenticate with your server:
-        // fetch('/api/login', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(loginData)
-        // })
-        
-    }, 1500);
-}
+// function submitLogin(loginData) {
+//     const submitBtn = document.querySelector('#loginForm .submit-btn');
+//     const originalText = submitBtn.textContent;
+//
+//     // Show loading state
+//     submitBtn.textContent = 'Logging in...';
+//     submitBtn.disabled = true;
+//
+//     // Simulate API call
+//     setTimeout(() => {
+//         // Reset button
+//         submitBtn.textContent = originalText;
+//         submitBtn.disabled = false;
+//
+//         // Simulate login response
+//         if (loginData.email === 'demo@almanamahgifts.com' && loginData.password === 'demo123') {
+//             showNotification('Login successful! Redirecting to dashboard...', 'success');
+//
+//             // In a real application, redirect to dashboard
+//             setTimeout(() => {
+//                 // window.location.href = '/dashboard';
+//                 showNotification('Demo mode: Dashboard redirect disabled', 'info');
+//             }, 1500);
+//         } else {
+//             showNotification('Invalid email or password. Please try again.', 'error');
+//         }
+//
+//         // In a real application, you would authenticate with your server:
+//         // fetch('/api/login', {
+//         //     method: 'POST',
+//         //     headers: { 'Content-Type': 'application/json' },
+//         //     body: JSON.stringify(loginData)
+//         // })
+//
+//     }, 1500);
+// }
 
 // Notification system
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -177,7 +179,7 @@ function showNotification(message, type = 'info') {
         <span>${message}</span>
         <button class="notification-close" onclick="this.parentElement.remove()">×</button>
     `;
-    
+
     // Add notification styles if not already present
     if (!document.querySelector('#notification-styles')) {
         const styles = document.createElement('style');
@@ -247,10 +249,10 @@ function showNotification(message, type = 'info') {
         `;
         document.head.appendChild(styles);
     }
-    
+
     // Add notification to page
     document.body.appendChild(notification);
-    
+
     // Auto-remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
@@ -263,18 +265,18 @@ function showNotification(message, type = 'info') {
 // Form field animations
 document.addEventListener('DOMContentLoaded', function() {
     const formControls = document.querySelectorAll('.form-control');
-    
+
     formControls.forEach(control => {
         control.addEventListener('focus', function() {
             this.parentElement.classList.add('focused');
         });
-        
+
         control.addEventListener('blur', function() {
             if (!this.value.trim()) {
                 this.parentElement.classList.remove('focused');
             }
         });
-        
+
         // Check if field has value on page load
         if (control.value.trim()) {
             control.parentElement.classList.add('focused');
@@ -285,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-button[href^="#"]');
-    
+
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -307,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('click', function(e) {
     const navLinks = document.getElementById('navLinks');
     const burger = document.querySelector('.burger');
-    
+
     if (navLinks && navLinks.classList.contains('active')) {
         if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
             navLinks.classList.remove('active');
@@ -319,11 +321,11 @@ document.addEventListener('click', function(e) {
 function addButtonLoadingState(button, loadingText = 'Loading...') {
     const originalText = button.textContent;
     const originalDisabled = button.disabled;
-    
+
     button.textContent = loadingText;
     button.disabled = true;
     button.classList.add('loading');
-    
+
     return function resetButton() {
         button.textContent = originalText;
         button.disabled = originalDisabled;
@@ -335,7 +337,7 @@ function addButtonLoadingState(button, loadingText = 'Loading...') {
 document.addEventListener('DOMContentLoaded', function() {
     // Add any initialization code here
     console.log('Al Manamah Gifts Contact Page Loaded');
-    
+
     // Set default tab if none is active
     const activeTab = document.querySelector('.tab-content.active');
     if (!activeTab) {
