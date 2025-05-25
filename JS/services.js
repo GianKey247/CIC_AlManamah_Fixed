@@ -1,19 +1,5 @@
-// Mobile Navigation Toggle
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const burger = document.querySelector('.burger');
-    
-    navLinks.classList.toggle('active');
-    
-    // Animate burger icon
-    if (navLinks.classList.contains('active')) {
-        burger.innerHTML = '✕';
-        burger.style.transform = 'rotate(90deg)';
-    } else {
-        burger.innerHTML = '☰';
-        burger.style.transform = 'rotate(0deg)';
-    }
-}
+
+
 
 // Close mobile menu when clicking on a link
 document.addEventListener('DOMContentLoaded', function() {

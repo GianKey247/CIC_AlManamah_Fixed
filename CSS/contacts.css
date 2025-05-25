@@ -85,14 +85,6 @@ body {
     transform: translateY(-2px);
 }
 
-.burger {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 10px;
-}
-
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #051455 0%, #034da1 100%);
@@ -346,25 +338,6 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .burger {
-        display: block;
-    }
-    
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
-        flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
     
     .nav-button {
         margin: 0.5rem 0;

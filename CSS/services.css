@@ -79,18 +79,6 @@ body {
     background: rgba(52, 152, 219, 0.1);
 }
 
-.burger {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #a6c7e8;
-    transition: color 0.3s ease;
-}
-
-.burger:hover {
-    color: #3498db;
-}
-
 /* Header Styles */
 .header {
     background: linear-gradient(135deg, #150b4a 0%, #34495e 100%);
@@ -327,28 +315,6 @@ body {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-    .burger {
-        display: block;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        height: calc(100vh - 70px);
-        width: 100%;
-        background: #110c3c;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: right 0.3s ease;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
 
     .nav-links li {
         margin: 1rem 0;

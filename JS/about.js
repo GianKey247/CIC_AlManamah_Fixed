@@ -1,10 +1,5 @@
-// Mobile Menu Toggle
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-}
-
 // Smooth Scrolling for Navigation Links
+//TODO: add this function to ultily.js
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 

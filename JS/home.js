@@ -1,9 +1,3 @@
-// Toggle mobile menu
-function toggleMenu() {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
-}
-
 // Close mobile menu when clicking on a link
 document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.nav-links a');
