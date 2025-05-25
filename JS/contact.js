@@ -23,15 +23,11 @@ function openTab(tabName) {
     // Add active class to clicked button
     event.target.classList.add('active');
 }
-
-// Form Validation and Submission
 document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function() {
-            event.preventDefault();
-
+        contactForm.addEventListener('submit', function (event) {
             // Get form data
             const formData = {
                 name: document.getElementById('name').value.trim(),
@@ -45,12 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validate required fields
             if (!formData.name || !formData.email || !formData.subject || !formData.message) {
                 showNotification('Please fill in all required fields.', 'error');
+                event.preventDefault(); // Prevent form submission if validation fails
                 return;
             }
 
             // Validate email format
             if (!isValidEmail(formData.email)) {
                 showNotification('Please enter a valid email address.', 'error');
+                event.preventDefault(); // Prevent form submission if validation fails
                 return;
             }
 
@@ -59,43 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitContactForm(formData);
         });
     }
-
-    // Login Form Handler
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Get login data
-            const loginData = {
-                email: document.getElementById('loginEmail').value.trim(),
-                password: document.getElementById('loginPassword').value
-            };
-
-            // Validate required fields
-            if (!loginData.email || !loginData.password) {
-                showNotification('Please enter both email and password.', 'error');
-                return;
-            }
-
-            // Validate email format
-            if (!isValidEmail(loginData.email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            // Simulate login
-            submitLogin(loginData);
-        });
-    }
-
-    // Set default tab if none is active
-    const activeTab = document.querySelector('.tab-content.active');
-    if (!activeTab) {
-        openTab('contact');
-    }
 });
-
 // Email validation function
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -119,7 +81,7 @@ function submitContactForm(formData) {
         document.getElementById('contactForm').reset();
     }, 2000);
 }
-//
+
 // // Login submission simulation
 // function submitLogin(loginData) {
 //     const submitBtn = document.querySelector('#loginForm .submit-btn');
