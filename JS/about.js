@@ -1,49 +1,4 @@
-// Smooth Scrolling for Navigation Links
-//TODO: add this function to ultily.js
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-
-            // Close mobile menu if open
-            const navLinksContainer = document.getElementById('navLinks');
-            navLinksContainer.classList.remove('active');
-        });
-    });
-
-    // Scroll Animation Observer
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const elementsToAnimate = document.querySelectorAll('.about-content, .box, .footer-col');
-    elementsToAnimate.forEach(el => {
-        el.classList.add('fade-in-animation');
-        observer.observe(el);
-    });
-
     // Parallax Effect for Hero Section
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
@@ -88,12 +43,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Active Navigation Highlighting
-    updateActiveNavigation();
-    window.addEventListener('scroll', updateActiveNavigation);
+    window.addEventListener('scroll', function() {
+        // Throttle scroll events for better performance
+        if (!scrollTimeout) {
+            scrollTimeout = setTimeout(function() {
+                scrollTimeout = null;
+            }, 16); // ~60fps
+        }
+    });
 
-    // Loading Animation
+    // Page loaded animation
     showPageLoaded();
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Form submission handler (if contact form exists)
+    const form = document.querySelector('form'); // Adjust the selector as needed
+    if (form) {
+        form.addEventListener('submit', handleFormSubmission);
+    }
+
+    // Performance optimization: Lazy load images
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        const images = document.querySelectorAll('img[data-src]');
+        images.forEach(img => imageObserver.observe(img));
+    }
 });
 
 // Show video message
@@ -123,43 +114,12 @@ function showVideoMessage(message) {
     }, 1500);
 }
 
-// Update active navigation based on scroll position
-function updateActiveNavigation() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
 
-    let current = '';
-    const scrollPos = window.scrollY + 100;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
 
 // Page loaded animation
 function showPageLoaded() {
     document.body.classList.add('page-loaded');
 }
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.remove('active');
-    }
-});
 
 // Form submission handler (if contact form exists)
 function handleFormSubmission(event) {
@@ -184,7 +144,7 @@ function revealOnScroll() {
 }
 
 // Throttled scroll event
-let ticking = false;
+let scrollTimeout;
 function requestTick() {
     if (!ticking) {
         requestAnimationFrame(revealOnScroll);
@@ -194,20 +154,3 @@ function requestTick() {
 }
 
 window.addEventListener('scroll', requestTick);
-
-// Performance optimization: Lazy load images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    const images = document.querySelectorAll('img[data-src]');
-    images.forEach(img => imageObserver.observe(img));
-}

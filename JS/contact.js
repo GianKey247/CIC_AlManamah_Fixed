@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize preloading
+    preloadImages();
+});
 
 // Tab Functionality
 function openTab(tabName) {
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function() {
-            e.preventDefault();
+            event.preventDefault();
 
             // Get form data
             const formData = {
@@ -59,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Login Form Handler
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
 
             // Get login data
             const loginData = {
@@ -84,6 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
             submitLogin(loginData);
         });
     }
+
+    // Set default tab if none is active
+    const activeTab = document.querySelector('.tab-content.active');
+    if (!activeTab) {
+        openTab('contact');
+    }
 });
 
 // Email validation function
@@ -95,48 +105,30 @@ function isValidEmail(email) {
 // Contact form submission simulation
 function submitContactForm(formData) {
     const submitBtn = document.querySelector('#contactForm .submit-btn');
-    const originalText = submitBtn.textContent;
-
-    // Show loading state
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
+    const resetButton = addButtonLoadingState(submitBtn);
 
     // Simulate API call
     setTimeout(() => {
         // Reset button
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        resetButton();
 
         // Show success message
         showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
 
         // Reset form
         document.getElementById('contactForm').reset();
-
-        // In a real application, you would send the data to your server:
-        // fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(formData)
-        // })
-
     }, 2000);
 }
-
-// Login submission simulation
+//
+// // Login submission simulation
 // function submitLogin(loginData) {
 //     const submitBtn = document.querySelector('#loginForm .submit-btn');
-//     const originalText = submitBtn.textContent;
-//
-//     // Show loading state
-//     submitBtn.textContent = 'Logging in...';
-//     submitBtn.disabled = true;
+//     const resetButton = addButtonLoadingState(submitBtn);
 //
 //     // Simulate API call
 //     setTimeout(() => {
 //         // Reset button
-//         submitBtn.textContent = originalText;
-//         submitBtn.disabled = false;
+//         resetButton();
 //
 //         // Simulate login response
 //         if (loginData.email === 'demo@almanamahgifts.com' && loginData.password === 'demo123') {
@@ -150,14 +142,6 @@ function submitContactForm(formData) {
 //         } else {
 //             showNotification('Invalid email or password. Please try again.', 'error');
 //         }
-//
-//         // In a real application, you would authenticate with your server:
-//         // fetch('/api/login', {
-//         //     method: 'POST',
-//         //     headers: { 'Content-Type': 'application/json' },
-//         //     body: JSON.stringify(loginData)
-//         // })
-//
 //     }, 1500);
 // }
 
@@ -279,39 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-button[href^="#"]');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#') && href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(e) {
-    const navLinks = document.getElementById('navLinks');
-    const burger = document.querySelector('.burger');
-
-    if (navLinks && navLinks.classList.contains('active')) {
-        if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
-            navLinks.classList.remove('active');
-        }
-    }
-});
-
 // Add loading animation to buttons
 function addButtonLoadingState(button, loadingText = 'Loading...') {
     const originalText = button.textContent;
@@ -332,10 +283,4 @@ function addButtonLoadingState(button, loadingText = 'Loading...') {
 document.addEventListener('DOMContentLoaded', function() {
     // Add any initialization code here
     console.log('Al Manamah Gifts Contact Page Loaded');
-
-    // Set default tab if none is active
-    const activeTab = document.querySelector('.tab-content.active');
-    if (!activeTab) {
-        openTab('contact');
-    }
 });

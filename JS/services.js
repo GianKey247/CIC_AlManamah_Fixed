@@ -1,29 +1,16 @@
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const navLinks = document.getElementById('navLinks');
-    const burger = document.querySelector('.burger');
-    const navbar = document.querySelector('.navbar');
-    
-    if (!navbar.contains(event.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        burger.innerHTML = '☰';
-        burger.style.transform = 'rotate(0deg)';
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize preloading
+    preloadImages();
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+// Preload important images
+function preloadImages() {
+    const images = ['logo.jpg'];
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
-});
+}
 
 // Navbar background opacity on scroll
 window.addEventListener('scroll', function() {
@@ -164,62 +151,3 @@ window.addEventListener('load', function() {
         animateOnScroll();
     }, 300);
 });
-
-// Preload important images
-function preloadImages() {
-    const images = ['logo.jpg'];
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
-// Initialize preloading
-document.addEventListener('DOMContentLoaded', preloadImages);
-
-// Add scroll-to-top functionality (optional)
-function addScrollToTop() {
-    const scrollButton = document.createElement('button');
-    scrollButton.innerHTML = '↑';
-    scrollButton.className = 'scroll-to-top';
-    scrollButton.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        color: white;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-    `;
-    
-    document.body.appendChild(scrollButton);
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollButton.style.opacity = '1';
-            scrollButton.style.visibility = 'visible';
-        } else {
-            scrollButton.style.opacity = '0';
-            scrollButton.style.visibility = 'hidden';
-        }
-    });
-    
-    scrollButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Initialize scroll-to-top
-document.addEventListener('DOMContentLoaded', addScrollToTop);
