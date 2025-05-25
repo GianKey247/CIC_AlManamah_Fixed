@@ -1,23 +1,3 @@
-
-
-
-// Close mobile menu when clicking on a link
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const mobileMenu = document.getElementById('navLinks');
-    const burger = document.querySelector('.burger');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                mobileMenu.classList.remove('active');
-                burger.innerHTML = '☰';
-                burger.style.transform = 'rotate(0deg)';
-            }
-        });
-    });
-});
-
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     const navLinks = document.getElementById('navLinks');
