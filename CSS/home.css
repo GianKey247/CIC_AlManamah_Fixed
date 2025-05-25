@@ -39,76 +39,39 @@ body {
   align-items: center;
 }
 
+
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  gap: 10px;
   font-weight: bold;
-  color: #2c3e50;
+  color: #fff;
 }
 
 .logo-image {
-  width: 45px;
-  height: 45px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(12, 4, 70, 0.642);
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
-.logo-image:hover {
+.logo:hover {
   transform: scale(1.05);
 }
 
-.logo-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #070870, #02158b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
 }
-
-.logo-text {
-  background: linear-gradient(135deg, #2b7cff 0%, #0438f3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/*.nav-links {*/
-/*  display: flex;*/
-/*  list-style: none;*/
-/*  gap: 2rem;*/
-/*  align-items: center;*/
-/*}*/
-
-/*.nav-links a {*/
-/*  text-decoration: none;*/
-/*  color: #7c73ff;*/
-/*  font-weight: 500;*/
-/*  transition: all 0.3s ease;*/
-/*  position: relative;*/
-/*}*/
-
-/*.nav-links a::after {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  bottom: -5px;*/
-/*  left: 0;*/
-/*  width: 0;*/
-/*  height: 2px;*/
-/*  background: linear-gradient(135deg, #264bee 0%, #240ae9 100%);*/
-/*  transition: width 0.3s ease;*/
-/*}*/
-
-/*.nav-links a:hover::after {*/
-/*  width: 100%;*/
-/*}*/
-
-/*.nav-links a:hover {*/
-/*  color: #667eea;*/
-/*}*/
-
 .nav-links a:hover,.nav-links a.active {
   color: #3498db;
   background: rgba(52, 152, 219, 0.1);
@@ -117,6 +80,14 @@ body {
 .nav-links a {
   color: #7c73ff;
 }
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* Hero Section */
 .hero {
   position: relative;

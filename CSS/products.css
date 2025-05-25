@@ -57,22 +57,33 @@ img, video {
   display: flex;
   align-items: center;
   font-size: 1.4rem;
+  gap: 10px;
   font-weight: bold;
   color: #fff;
-  transition: transform 0.3s ease;
 }
 
+.logo-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .logo:hover {
   transform: scale(1.05);
 }
 
 .logo-circle {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #070870, #02158b);
   border-radius: 50%;
-  background: linear-gradient(45deg, #78b7ff, #4f88d6);
-  margin-right: 12px;
-  box-shadow: 0 4px 12px rgba(120, 183, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
 }
 
 .nav-links a:hover,.nav-links a.active {
