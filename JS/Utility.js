@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateActiveLink();
         });
     });
-
+    let scrollTimeout;
     // Add scroll event listener to update active link
     window.addEventListener('scroll', function() {
         // Throttle scroll events for better performance

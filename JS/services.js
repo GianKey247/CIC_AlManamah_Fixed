@@ -1,17 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize preloading
-    preloadImages();
-});
-
-// Preload important images
-function preloadImages() {
-    const images = ['logo.jpg'];
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
 // Navbar background opacity on scroll
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');

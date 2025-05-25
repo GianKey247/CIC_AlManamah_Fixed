@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize preloading
-    preloadImages();
-});
-
 // Tab Functionality
 function openTab(tabName) {
     // Hide all tab contents

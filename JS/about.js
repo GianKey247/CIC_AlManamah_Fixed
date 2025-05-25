@@ -43,14 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    window.addEventListener('scroll', function() {
-        // Throttle scroll events for better performance
-        if (!scrollTimeout) {
-            scrollTimeout = setTimeout(function() {
-                scrollTimeout = null;
-            }, 16); // ~60fps
-        }
-    });
 
     // Page loaded animation
     showPageLoaded();
@@ -142,9 +134,7 @@ function revealOnScroll() {
         }
     });
 }
-
-// Throttled scroll event
-let scrollTimeout;
+let ticking = false;
 function requestTick() {
     if (!ticking) {
         requestAnimationFrame(revealOnScroll);
