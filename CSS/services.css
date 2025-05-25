@@ -56,21 +56,9 @@ body {
     color: #d4eaff;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
 
 .nav-links a {
-    text-decoration: none;
     color: #abd8fe;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
 }
 
 .nav-links a:hover,
@@ -154,7 +142,6 @@ body {
 }
 
 .services-grid {
-    background-color:hsl(from color h s l); 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
@@ -311,22 +298,6 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     color: #709dff;
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-
-    .nav-links li {
-        margin: 1rem 0;
-    }
-
-    .nav-links a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
 }
 
 /* Responsive Design */

@@ -8,6 +8,7 @@
     <link href="CSS/utility.css" rel="stylesheet"/>
 </head>
 <body>
+<!--TODO: Fix the active link in the navbar-->
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -18,13 +19,13 @@
                 <div class="company-name">Al Manamah</div>
             </div>
             <button class="burger" onclick="toggleMenu()">☰</button>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a> <!--Linked to homepage-->
-                <a href="about.html" class="active">About</a>
-                <a href="products.html">Products</a>
-                <a href="services.html">Services</a>
-                <a href="contacts.html">Contact</a>
-            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a> </li><!--Linked to homepage-->
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 

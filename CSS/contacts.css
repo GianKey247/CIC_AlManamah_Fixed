@@ -63,26 +63,13 @@ body {
     letter-spacing: 1px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+.nav-links a:hover,.nav-links a.active {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
 }
 
-.nav-button {
-    color: white;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-button:hover {
-    background: rgba(96, 112, 255, 0.667);
-    transform: translateY(-2px);
+.nav-links a {
+    color: #7c73ff;
 }
 
 /* Hero Section */
@@ -338,12 +325,7 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    
-    .nav-button {
-        margin: 0.5rem 0;
-        border-radius: 0;
-    }
-    
+
     .hero-content {
         flex-direction: column;
         gap: 2rem;
